@@ -9,7 +9,7 @@ void f_pint(stack_t **head, unsigned int counter)
 {
 	if (*head == NULL)
 	{
-		printf("L%u: can't pint, stack empty\n", counter);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
