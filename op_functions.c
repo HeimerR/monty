@@ -29,6 +29,11 @@ void f_push(stack_t **head, unsigned int number)
 	stack_t *new_node;
 	stack_t *aux;
 
+	if(bus[1] == 1)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", bus[0]);
+		exit(EXIT_FAILURE);
+	}
 	aux = *head;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
@@ -42,4 +47,5 @@ void f_push(stack_t **head, unsigned int number)
 	new_node->next = *head;
 	new_node->prev = NULL;
 	*head = new_node;
+//	printf("line_count:%d", line_count);
 }

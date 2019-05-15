@@ -21,7 +21,7 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-extern stack_t *stack;
+extern int bus[2];
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -40,6 +40,6 @@ ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
 void f_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
-int execute(char *content, stack_t **head, int line_count);
+int execute(char *content, stack_t **head, int bus[]);
 void free_stack(stack_t *head);
 #endif
