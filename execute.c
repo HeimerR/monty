@@ -5,46 +5,36 @@
 * @content: line content
 * Return: no return
 */
-void execute(char *content, stack_t **stack)
+int execute(char *content, stack_t **stack, int line_count)
 {
 	instruction_t opst[] = {
 				{"push", f_push},
 				{"pall", f_pall},
 				{NULL, NULL}
 				};
-	unsigned int i = 0, j = 0, number;
+	unsigned int i = 0, number;
+	char *op, *val;
 
-	strtok
-	
-	/*	char op[5];
-	char val[10];
 
-	while (content[i] != ' ' && content[i] != '\n')
-	{
-		op[i] = content[i];
-		i++;
-	}
-	op[i] = '\0';
-	if (content[i] == '\n')
-	{
-		number = 0;
-	}
+	op = strtok(content, " \n");
+	val = strtok(NULL, " \n"); 
+	if (val)
+		number = atoi(val);
 	else
+		number = 0;
+	while (opst[i].opcode && op)
 	{
-		while (content[i] != '\n')
-		{
-			val[j++] = content[i++];
-		}
-	}
-	val[j] = '\0';
-	number = atoi(&val[0]);
-	i = 0; */
-	while (opst[i].opcode)
-	{
-		if (strcmp(&op[0], opst[i].opcode) == 0)
+		if (strcmp(op, opst[i].opcode) == 0)
 		{
 			opst[i].f(stack, number);
+			return (0);
 		}
 		i++;
 	}
+	if (op)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_count, op);
+		exit(EXIT_FAILURE);
+	}
+	return (1);
 }

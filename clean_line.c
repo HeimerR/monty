@@ -6,7 +6,7 @@
 */
 char  *clean_line(char *content)
 {
-	char line[10];
+/*	char line[10];
 	int i = 1, j = 0;
 
 	if (content[0] == '\n')
@@ -19,6 +19,6 @@ char  *clean_line(char *content)
 		{
 			line[j++] = content[i];
 		}
-	}
+	}*/
 return (content);
 }

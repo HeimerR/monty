@@ -1,11 +1,12 @@
 #include "monty.h"
 int main(int argc, char *argv[])
 {
-	char *content, *c_line;
+	char *content;
 	FILE *file;
 	size_t size = 0, count = 0;
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
+	int line_count = 0;
 
 	if (argc != 2)
 	{
@@ -23,10 +24,10 @@ int main(int argc, char *argv[])
 		count++;
 		content = NULL;
 		read_line = getline(&content, &size, file);
+		line_count++;
 		if (read_line > 0)
 		{
-		//	c_line = clean_line(content);
-			execute(c_line, &stack);
+			execute(content, &stack, line_count);
 		}
 		free(content);
 	}
