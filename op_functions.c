@@ -67,11 +67,11 @@ void f_push(stack_t **head, unsigned int counter)
 	*head = new_node;
 }
 void f_pint(stack_t **head, unsigned int counter)
- {
-          if (*head == NULL)
-          {
-                  printf("L%u: can't pint, stack empty\n", counter);
-                  exit(EXIT_FAILURE);
-          }
-          printf("%d\n", (*head)->n);
- }
+{
+	if (*head == NULL)
+	{
+		printf("L%u: can't pint, stack empty\n", counter);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*head)->n);
+}
