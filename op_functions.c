@@ -42,5 +42,4 @@ void f_push(stack_t **head, unsigned int number)
 	new_node->next = *head;
 	new_node->prev = NULL;
 	*head = new_node;
-//	printf("line_count:%d", line_count);
 }
