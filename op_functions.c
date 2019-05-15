@@ -25,10 +25,8 @@ void f_pall(stack_t **head, unsigned int counter)
 */
 void f_push(stack_t **head, unsigned int counter)
 {
-
-	stack_t *new_node;
-	stack_t *aux;
-	int n;
+	stack_t *new_node, *aux;
+	int n, j, flag = 0;
 
 	aux = *head;
 	if (bus.arg)
@@ -37,8 +35,13 @@ void f_push(stack_t **head, unsigned int counter)
 			n = 0;
 		else
 		{
+			for (j = 0; bus.arg[j] != '\0'; j++)
+			{
+				if (bus.arg[j] > 57 || bus.arg[j] < 48)
+					flag = 1;
+			}
 			n = (atoi(bus.arg));
-			if (n == 0)
+			if (n == 0 || flag == 1)
 			{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 				fclose(bus.file);
 				free(bus.content);
