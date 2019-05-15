@@ -21,7 +21,21 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-extern int bus[2];
+/**
+ * struct bus_s - variables -args, file, line content
+ * @arg: value
+ * @file: pointer to monty file
+ * @content: line content
+ *
+ * Description: carries values through the program
+ */
+typedef struct bus_s
+{
+	char *arg;
+	FILE *file;
+	char *content;
+}  bus_t;
+extern bus_t bus;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -40,6 +54,6 @@ ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
 void f_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
-int execute(char *content, stack_t **head, int bus[], FILE *file);
+int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);
 #endif
