@@ -1,5 +1,23 @@
 #include "monty.h"
 /**
+ * f_pint - prints the top
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+*/
+void f_pint(stack_t **head, unsigned int counter)
+{
+	if (*head == NULL)
+	{
+		printf("L%u: can't pint, stack empty\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*head)->n);
+}
+/**
  * f_pall - prints the stack
  * @head: stack head
  * @counter: no used
@@ -11,6 +29,8 @@ void f_pall(stack_t **head, unsigned int counter)
 	(void)counter;
 
 	h = *head;
+	if (h == NULL)
+		return;
 	while (h)
 	{
 		printf("%d\n", h->n);
@@ -64,13 +84,4 @@ void f_push(stack_t **head, unsigned int counter)
 	new_node->next = *head;
 	new_node->prev = NULL;
 	*head = new_node;
-}
-void f_pint(stack_t **head, unsigned int counter)
-{
-	if (*head == NULL)
-	{
-		printf("L%u: can't pint, stack empty\n", counter);
-		exit(EXIT_FAILURE);
-	}
-	printf("%d\n", (*head)->n);
 }
