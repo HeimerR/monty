@@ -5,7 +5,7 @@
 * @content: line content
 * Return: no return
 */
-int execute(char *content, stack_t **stack, int bus[])
+int execute(char *content, stack_t **stack, int bus[], FILE *file)
 {
 	instruction_t opst[] = {
 				{"push", f_push},
@@ -28,23 +28,34 @@ int execute(char *content, stack_t **stack, int bus[])
 		{
 			number = atoi(val);
 			if (number == 0)
-				bus[1] = 1;
+				val = NULL;
 		}
 	}
-	else
-		bus[1] = 1;
 	while (opst[i].opcode && op)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
 		{
+			if(!val && i == 0)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", bus[0]);
+				bus[1] = 1;
+				break;
+			}
 			opst[i].f(stack, number);
 			return (0);
 		}
 		i++;
 	}
-	if (op)
+	if (op && i == 2)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", bus[0], op);
+		bus[1] = 1;
+	}
+	if (bus[1] == 1)
+	{
+		fclose(file);
+		free(content);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	return (1);

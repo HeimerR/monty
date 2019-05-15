@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		bus[0]++;
 		if (read_line > 0)
 		{
-			execute(content, &stack, bus);
+			execute(content, &stack, bus, file);
 		}
 		free(content);
 	}
