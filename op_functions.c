@@ -51,29 +51,25 @@ void f_push(stack_t **head, unsigned int counter)
 	aux = *head;
 	if (bus.arg)
 	{
-		if (bus.arg[0] == '0' && bus.arg[1] == '\0')
-			n = 0;
-		else
+		if (bus.arg[0] == '-')
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
 		{
-			if (bus.arg[0] == '-')
-				j++;
-			for (; bus.arg[j] != '\0'; j++)
-			{
-				if (bus.arg[j] > 57 || bus.arg[j] < 48)
-					flag = 1; }
-			n = (atoi(bus.arg));
-			if (n == 0 || flag == 1)
-			{ fprintf(stderr, "L%d: usage: push integer\n", counter);
-				fclose(bus.file);
-				free(bus.content);
-				free_stack(*head);
-				exit(EXIT_FAILURE); }}}
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+				flag = 1; }
+		if (flag == 1)
+		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE); }}
 	else
 	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE); }
+	n = atoi(bus.arg);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{ printf("Error\n");
