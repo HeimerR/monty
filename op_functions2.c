@@ -84,11 +84,7 @@ void f_pstr(stack_t **head, unsigned int counter)
 	h = *head;
 	while (h)
 	{
-		if (isascii(h->n)  && h->n != 0)
-		{
-			printf("%c", h->n);
-		}
-		else
+		if (h->n > 127 || h->n <= 0)
 		{
 			printf("\n");
 			fclose(bus.file);
@@ -96,6 +92,7 @@ void f_pstr(stack_t **head, unsigned int counter)
 			free_stack(*head);
 			exit(0);
 		}
+		printf("%c", h->n);
 		h = h->next;
 	}
 	printf("\n");
