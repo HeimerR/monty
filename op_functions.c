@@ -74,10 +74,22 @@ void f_push(stack_t **head, unsigned int counter)
 	if (new_node == NULL)
 	{ printf("Error\n");
 		exit(0); }
-	if (aux)
-		aux->prev = new_node;
-	new_node->n = n;
-	new_node->next = *head;
-	new_node->prev = NULL;
-	*head = new_node;
-}
+		if (lifi == 1)
+		{
+			if (aux)
+				aux->prev = new_node;
+			new_node->n = n;
+			new_node->next = NULL;
+			new_node->prev = *head;
+			*head = new_node;
+		}
+		else
+		{
+			if (aux)
+				aux->prev = new_node;
+ 			new_node->n = n;
+			new_node->next = *head;
+			new_node->prev = NULL;
+			*head = new_node;
+		}
+	}
