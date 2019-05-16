@@ -24,6 +24,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 				{"pchar", f_pchar},
 				{"pstr", f_pstr},
 				{"rotl", f_rotl},
+				{"rotr", f_rotr},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
@@ -36,8 +37,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	while (opst[i].opcode && op)
 	{
 		if (strcmp(op, opst[i].opcode) == 0)
-		{
-			opst[i].f(stack, counter);
+		{	opst[i].f(stack, counter);
 			return (0);
 		}
 		i++;
