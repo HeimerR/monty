@@ -11,9 +11,6 @@ void f_rotl(stack_t **head,  __attribute__((unused)) unsigned int counter)
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*head);
 		return;
 	}
 	aux = (*head)->next;
