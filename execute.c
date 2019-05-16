@@ -22,13 +22,14 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 				{"mul", f_mul},
 				{"mod", f_mod},
 				{"pchar", f_pchar},
+				{"pstr", f_pstr},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
 	char *op;
 
 	op = strtok(content, " \n\t");
-	if (op[0] == '#')
+	if (op && op[0] == '#')
 		return (0);
 	bus.arg = strtok(NULL, " \n\t");
 	while (opst[i].opcode && op)
