@@ -86,11 +86,7 @@ void f_pstr(stack_t **head, unsigned int counter)
 	{
 		if (h->n > 127 || h->n <= 0)
 		{
-			printf("\n");
-			fclose(bus.file);
-			free(bus.content);
-			free_stack(*head);
-			exit(0);
+			break;
 		}
 		printf("%c", h->n);
 		h = h->next;
