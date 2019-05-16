@@ -85,6 +85,9 @@ void f_pstr(stack_t **head, unsigned int counter)
 	if (!h)
 	{
 		fprintf(stderr, "L%d: Empty stack\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
 		exit(0);
 	}
 	while (h)
