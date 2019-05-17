@@ -45,10 +45,8 @@ void f_pall(stack_t **head, unsigned int counter)
 */
 void f_push(stack_t **head, unsigned int counter)
 {
-	stack_t *new_node, *aux;
 	int n, j = 0, flag = 0;
 
-	aux = *head;
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
@@ -70,6 +68,23 @@ void f_push(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE); }
 	n = atoi(bus.arg);
+	if (bus.lifi == 0)
+		addnode(head, n);
+	else
+		addqueue(head, n);
+}
+/**
+ * addnode - add node to the head stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+*/
+void addnode(stack_t **head, int n)
+{
+
+	stack_t *new_node, *aux;
+
+	aux = *head;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{ printf("Error\n");
@@ -80,4 +95,39 @@ void f_push(stack_t **head, unsigned int counter)
 	new_node->next = *head;
 	new_node->prev = NULL;
 	*head = new_node;
+}
+/**
+ * addnqueue - add node to the tail stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+*/
+void addqueue(stack_t **head, int n)
+{
+	stack_t *new_node, *aux;
+
+	aux = *head;
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{
+		printf("Error\n");
+	}
+	new_node->n = n;
+	new_node->next = NULL;
+	if (aux)
+	{
+		while (aux->next)
+			aux = aux->next;
+	}
+	if (!aux)
+	{
+		*head = new_node;
+		new_node->prev = NULL;
+	}
+	else
+	{
+		aux->next = new_node;
+		new_node->prev = aux;
+	}
+
 }
