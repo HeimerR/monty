@@ -38,6 +38,32 @@ void f_pall(stack_t **head, unsigned int counter)
 	}
 }
 /**
+  *f_lifi- stack <-> queue
+  *@option: 0 = stack, 1 = queue
+  *Retirn: nothing
+ */
+void f_lifi(int option)
+{
+	if (option == 1)
+	{
+		if (aux)
+			aux->prev = new_node;
+		new_node->n = n;
+		new_node->next = NULL;
+		new_node->prev = *head;
+		*head = new_node;
+	}
+	else
+	{
+		if (aux)
+			aux->prev = new_node;
+		new_node->n = n;
+		new_node->next = *head;
+		new_node->prev = NULL;
+		*head = new_node;
+	}
+}
+/**
  * f_push - add node to the stack
  * @head: stack head
  * @counter: line_number
@@ -75,21 +101,7 @@ void f_push(stack_t **head, unsigned int counter)
 	{ printf("Error\n");
 		exit(0); }
 		if (lifi == 1)
-		{
-			if (aux)
-				aux->prev = new_node;
-			new_node->n = n;
-			new_node->next = NULL;
-			new_node->prev = *head;
-			*head = new_node;
-		}
+			f_lifi(1);
 		else
-		{
-			if (aux)
-				aux->prev = new_node;
- 			new_node->n = n;
-			new_node->next = *head;
-			new_node->prev = NULL;
-			*head = new_node;
-		}
+			f_lifi(0);
 	}
