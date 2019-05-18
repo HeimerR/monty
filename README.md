@@ -26,7 +26,7 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 4. Execute:
 ```console
 ./monty file.m
-//The file contains the bytcode instructions
+//The file contains the bytcode instructions for example
 cat -e 000.m
 push 0$
 push 1$
@@ -84,4 +84,4 @@ builders.c  helper.c   hsh          README.md  test
 
 ### Autors
 
-Ferney Medina & Alexandra Fonseca
+Heimer Rojas & Alexandra Fonseca
