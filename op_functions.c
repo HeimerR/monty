@@ -40,9 +40,12 @@ void f_pall(stack_t **head, unsigned int counter)
 /**
   *f_lifi- stack <-> queue
   *@option: 0 = stack, 1 = queue
-  *Retirn: nothing
+  *@aux: pointer
+  *@new_node: pointer
+  *@head: pointer
+  *Return: nothing
  */
-void f_lifi(int option)
+void f_lifi(int option,stack_t *aux, stack_t *new_node, stack_t *head)
 {
 	if (option == 1)
 	{
@@ -100,8 +103,8 @@ void f_push(stack_t **head, unsigned int counter)
 	if (new_node == NULL)
 	{ printf("Error\n");
 		exit(0); }
-		if (lifi == 1)
-			f_lifi(1);
+		if (bus.lifi == 1)
+			f_lifi(1, aux, new_node, *head);
 		else
-			f_lifi(0);
+			f_lifi(0, aux, new_node, *head);
 	}
