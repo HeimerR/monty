@@ -1,4 +1,4 @@
-#MONTY
+###MONTY
 
 ## Description
 
@@ -10,22 +10,33 @@ It is a interpreter for Monty ByteCodes files.
 
 1. Clone the repository:
 ```console
-https://github.com/alexadeveloper/simple_shell.git
+https://github.com/HeimerR/monty.git
 ```
 
 2. Enter at directory
 ```console
-cd simple_shell/
+cd monty
 ```
 
 3. Compile:
 ```console
-gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 ```
 
 4. Execute:
 ```console
-./hsh
+./monty file.m
+//The file contains the bytcode instructions
+cat -e 000.m
+push 0$
+push 1$
+push 2$
+  push 3$
+                   pall    $
+push 4$
+    push 5    $
+      push    6        $
+pall$
 ```
 
 ## Functions
