@@ -43,23 +43,11 @@ pall$
 
 The functions used are:
 
-|Name | Description | Return|
-|:--: | :-- | :--|
-|_strcpy | Copy a string| Destination Pointer|
-|_strlen | Calculate size of a string | Size a string|
-|str_concat | Concat two string | Pointer to a array|
-|build_argv | Build argv to send myexec | Array to pointer with arguments|
-|build_path | Find path to execute | Pointer with the value of full path|
-|_getline | Delimited a string input | The length of input|
-|_strtok | Extract tokens from a string | A pointer to the next token|
-|_strspn | Find some char into a string | The number of characters in the initial segment|
-|get_value_env | Find the value of enviroment variable | Pointer start on value of variable|
-|myexec | Execute a command | It was succesful or not|
-|sighandler | Handle the signals | No Return|
-|_realloc | Reallocates a memory block | Pointer a new allocation|
-|_realloc_pointer | Reallocates memory of a pointer | Pointer a new allocation|
-|main | Entry point of shell |  0 if succes|
-
+|Name | Description | Return| File
+|:--: | :-- | :--| :--|
+|_f_add | adds the top two elements of the stack | No Return | add.c|
+| addnode | add node to the head stack | No Return | addnode.c|
+| f_div | divides the top two elements of the stack. | No Return | div.c|
 ### Examples
 
 ```console
