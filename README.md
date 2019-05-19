@@ -1,4 +1,4 @@
-###MONTY
+##MONTY
 
 ## Description
 
@@ -59,20 +59,6 @@ The functions used are:
 |_realloc | Reallocates a memory block | Pointer a new allocation|
 |_realloc_pointer | Reallocates memory of a pointer | Pointer a new allocation|
 |main | Entry point of shell |  0 if succes|
-
-### Files
-
-The functions are organized in files:
-
-Name | Functions
-:--: | :--
-basics.c | _strcpy, _strlen, str_concat
-builders.c | build_argv, build_path
-general.c | _getline, _strtok, _strspn, get_value_env, myexec
-helper.c | sighandler
-holberton.h | libraries and prototypes
-memory.c | _realloc, _realloc_pointer
-shell.c | main
 
 ### Examples
 
